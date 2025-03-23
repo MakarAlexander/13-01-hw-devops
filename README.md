@@ -29,6 +29,36 @@ Resource Terraform для Yandex Cloud:
 - [Route table](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/vpc_route_table).
 - [Compute Instance](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/compute_instance).
 
+#### Решение
+
+[variables.tf](./terraform/variables.tf) переменные с параметрами для всех объектов. Значения (только публичные) заданы в [public.auto.tfvars](./terraform/public.auto.tfvars)  
+[network.tf](./terraform/network.tf) описано создание VPC, subnets и route table.  
+[main.tf](./terraform/main.tf) создание шаблона cloud-init, получение images id и compute instance через for_each
+
+
+
+Выполнил ```terraform apply```
+
+![1-1](./1.png)
+
+Созданные ресурсы
+
+![1-2](./2.png)
+![1-3](./3.png)
+![1-4](./4.png)
+
+Подключение к ```public``` + проверка доступа в интернет
+
+![1-5](./5.png)
+
+Подключение к ```private``` через ```public``` + проверка доступа в интернет
+
+![1-6](./6.png)
+
+Проверка, что запрос идёт через NAT
+
+![1-7](./7.png)
+
 ---
 ### Задание 2. AWS* (задание со звёздочкой)
 
